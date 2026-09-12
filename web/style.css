@@ -29,6 +29,7 @@ a:hover{color:var(--cue)}
   .lockup{grid-column:1 / -1; margin-bottom:2rem}
   .standfirst{margin:0; font-size:1.55rem}
   .provenance{margin:0; padding-bottom:.35rem}
+
 }
 .lockup{display:flex; align-items:center; gap:1.1rem}
 .brainmark{width:clamp(52px,10vw,72px); height:auto; flex:none}
@@ -189,4 +190,19 @@ footer p{margin:0 0 .9rem}
 
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms !important; transition-duration:.001ms !important}
+}
+
+/* Wide screens: these must come after the base .ask / footer rules, because a
+   media query adds no specificity - only source order decides. */
+@media (min-width:940px){
+  .ask{max-width:none; display:grid; gap:0 3.5rem; align-items:start;
+       grid-template-columns:minmax(0,1fr) minmax(260px,22rem)}
+  .ask-label,textarea,.ask-row{grid-column:1}
+  .starters{grid-column:2; grid-row:1 / span 3; margin:0}
+  .starters ul{flex-direction:column; align-items:stretch}
+  .starters button{text-align:left}
+
+  footer{max-width:none; display:grid; gap:0 3.5rem;
+         grid-template-columns:minmax(0,1fr) minmax(280px,24rem)}
+  footer p{margin:0}
 }
