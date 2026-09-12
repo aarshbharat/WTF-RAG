@@ -11,15 +11,18 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0 auto; max-width:1180px; background:var(--bg); color:var(--text);
-  font-family:"Source Serif 4",Georgia,serif; font-size:18px; line-height:1.65;
-  padding:0 6vw 5rem;
+  font-family:"Source Serif 4",Georgia,serif; line-height:1.65;
+  font-size:clamp(16.5px,1rem + 0.25vw,18.5px);
+  padding:0 clamp(1.15rem,5vw,3.5rem) 5rem;
 }
 h1,h2,h3,button,input,textarea,.tabular{font-family:"Bricolage Grotesque",system-ui,sans-serif}
 a{color:var(--text); text-decoration-color:var(--cue); text-underline-offset:3px}
 a:hover{color:var(--cue)}
 :focus-visible{outline:2px solid var(--cue); outline-offset:3px}
 
-.masthead{max-width:var(--measure); padding:4rem 0 2rem}
+.masthead{max-width:var(--measure); padding:4rem 0 2.5rem}
+
+/* On a wide screen the intro reads as two columns instead of one thin strip. */
 @media (min-width:940px){
   .masthead{max-width:none; display:grid; gap:0 3.5rem; align-items:end;
             grid-template-columns:minmax(0,1fr) minmax(280px,24rem)}
@@ -27,7 +30,6 @@ a:hover{color:var(--cue)}
   .standfirst{margin:0; font-size:1.55rem}
   .provenance{margin:0; padding-bottom:.35rem}
 }
-
 .lockup{display:flex; align-items:center; gap:1.1rem}
 .brainmark{width:clamp(52px,10vw,72px); height:auto; flex:none}
 .brainmark .body{fill:var(--panel); stroke:var(--edge); stroke-width:3}
@@ -142,11 +144,49 @@ footer{max-width:var(--measure); margin-top:5rem; padding-top:1.5rem;
   border-top:1px solid var(--edge); font-size:.86rem; color:var(--muted)}
 footer p{margin:0 0 .9rem}
 
+/* Small phones: tighter rhythm, shorter bars, smaller source thumbnails. */
 @media (max-width:600px){
-  body{font-size:17px; padding:0 6vw 3rem}
-  .masthead{padding-top:3rem}
-  .bars{height:40px}
+  .masthead{padding:2.5rem 0 1.75rem}
+  .lockup{gap:.85rem}
+  .standfirst{font-size:1.15rem; margin:1.25rem 0 1rem}
+  .bars{height:38px}
+  .archive{padding:.5rem 0 1.75rem}
+  .ask{padding:1.75rem 0 0}
+  .thread{padding-top:1.75rem}
+  .turn{padding-top:1.75rem; margin-top:1.75rem}
+  .asked{font-size:1.25rem}
+  .source .thumb{width:64px; height:36px}
+  footer{margin-top:3rem}
 }
+
+/* Very small phones: the wordmark and tag need to stop competing for width. */
+@media (max-width:380px){
+  .lockup{flex-wrap:wrap}
+  .wordmark{font-size:2rem}
+  .bars{height:30px; gap:2px}
+  .source .thumb{display:none}
+}
+
+/* Tablets and small laptops: let the reading column breathe before the grid kicks in. */
+@media (min-width:601px) and (max-width:939px){
+  .masthead{padding:3.25rem 0 2rem}
+  .standfirst{font-size:1.4rem}
+}
+
+/* Touch devices: every tappable thing gets a comfortable target. */
+@media (pointer:coarse){
+  .starters button{min-height:44px}
+  button{min-height:46px}
+  .source summary{padding:1rem 0}
+  .cite{padding:.15em .4em}
+}
+
+/* Short landscape viewports: don't spend half the screen on the masthead. */
+@media (max-height:520px) and (orientation:landscape){
+  .masthead{padding:1.75rem 0 1.25rem}
+  .standfirst{font-size:1.15rem}
+}
+
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms !important; transition-duration:.001ms !important}
 }
