@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>WTF Rewind — founder answers, timestamped</title>
+        <link rel="icon" href="favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="icon-180.png">
+        <meta name="theme-color" content="#0C1A17">
+        <meta name="description"
+            content="Ask 27 founder conversations from WTF is with Nikhil Kamath and land on the second it was answered. An unofficial fan project.">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="masthead">
+            <div class="lockup">
+                <svg class="brainmark" viewBox="0 0 96 132" aria-hidden="true">
+                    <rect class="body" x="26" y="8" width="44" height="72" rx="22" />
+                    <path class="grille" d="M26 26h44M26 38h44M26 50h44M26 62h44" />
+                    <g class="synapse">
+                        <path d="M38 26v24h20v12" />
+                        <path d="M58 26v12H38v24" />
+                    </g>
+                    <circle class="n1" cx="38" cy="26" r="4.5" />
+                    <circle class="n2" cx="58" cy="38" r="4.5" />
+                    <circle class="n3" cx="38" cy="62" r="4.5" />
+                    <circle class="n4" cx="58" cy="62" r="4.5" />
+                    <path class="yoke" d="M16 62a32 32 0 0 0 64 0" />
+                    <path class="stem" d="M48 94v22" />
+                    <path class="base" d="M28 124h40" />
+                </svg>
+                <div>
+                    <h1 class="wordmark">WTF Rewind</h1>
+                    <p class="tag">Unofficial fan project · not made by the show</p>
+                </div>
+            </div>
+            <p class="standfirst">Twenty-seven founder conversations, one place to ask them anything.
+                Every answer lands you on the second it was said.</p>
+            <p class="provenance">Built on the public captions of
+                <a href="https://www.youtube.com/playlist?list=PLVPkbpccdn98Mb43hFbfxXHRLQxAS4tyU" target="_blank"
+                    rel="noopener">WTF is with Nikhil Kamath</a>.
+                Not affiliated with or endorsed by Nikhil Kamath, his guests or the WTF team. Nothing here is sold.
+                Answers are written by a language model from imperfect auto-captions, so open the clip and check before
+                you act on it.
+            </p>
+        </header>
+
+        <section class="archive" aria-labelledby="archive-heading">
+            <h2 id="archive-heading" class="quiet-heading">The archive</h2>
+            <div class="bars" id="bars" role="img" aria-label="27 episodes, each bar one episode, height by length">
+            </div>
+            <p class="archive-meta"><span id="ep-count">27</span> episodes · <span id="hour-count">77</span> hours ·
+                5,938 searchable moments · restaurants, EV, D2C, gaming, pharma, real estate, venture capital and more
+            </p>
+        </section>
+
+        <main>
+            <form class="ask" id="ask-form">
+                <label class="ask-label" for="q">What are you trying to figure out?</label>
+                <textarea id="q" name="q" rows="2" maxlength="500"
+                    placeholder="I want to open a café in a tier-2 city. What should I worry about?"></textarea>
+                <div class="ask-row">
+                    <button type="submit" id="ask-btn">Ask the room</button>
+                    <span class="hint" id="hint">One question at a time. No chat memory.</span>
+                </div>
+
+                <div class="starters" id="starters">
+                    <p class="starters-label">Money</p>
+                    <ul>
+                        <li><button type="button">How do restaurants actually make money?</button></li>
+                        <li><button type="button">What do VCs look for in a first-time founder?</button></li>
+                        <li><button type="button">When does a D2C brand start making a profit?</button></li>
+                    </ul>
+                    <p class="starters-label">Getting started</p>
+                    <ul>
+                        <li><button type="button">What do founders wish they knew before their first hire?</button></li>
+                        <li><button type="button">How do you find a co-founder you can trust?</button></li>
+                        <li><button type="button">Is it better to bootstrap or raise early?</button></li>
+                    </ul>
+                    <p class="starters-label">Hard industries</p>
+                    <ul>
+                        <li><button type="button">What makes electric vehicles hard to scale in India?</button></li>
+                        <li><button type="button">Why is building a pharma company so slow?</button></li>
+                        <li><button type="button">What breaks first when a restaurant chain expands?</button></li>
+                    </ul>
+                </div>
+            </form>
+
+            <div id="thread" class="thread" aria-live="polite"></div>
+        </main>
+
+        <footer>
+            <p><strong>Courtesy and credit.</strong> Every idea, phrase and insight here belongs to Nikhil Kamath, his
+                guests and the WTF team.
+                This project keeps only short caption excerpts, long enough to find a moment, and always sends you back
+                to the original video to watch it —
+                so the people who did the thinking get the view.</p>
+            <p>A learning project by <a href="#" id="author-link">Aarsh Dhokai</a>, built to study retrieval-augmented
+                generation.
+                Not monetised, not affiliated, not a substitute for watching the episodes.
+            </p>
+        </footer>
+
+        <template id="turn-template">
+            <article class="turn">
+                <p class="asked"></p>
+                <div class="answer"></div>
+                <div class="sources"></div>
+            </article>
+        </template>
+
+        <script src="app.js"></script>
+    </body>
+
+</html>
