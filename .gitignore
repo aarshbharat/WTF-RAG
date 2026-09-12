@@ -9,4 +9,12 @@ wheels/
 # Virtual environments
 .venv
 .env
-data/
+.env
+.venv/
+__pycache__/
+*.pyc
+data/audio/
+data/embeddings_*.npy
+data/embedding_ids.json
+data/windows.jsonl
+ data/qdrant/.lock
