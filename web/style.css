@@ -10,7 +10,7 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
-  margin:0; background:var(--bg); color:var(--text);
+  margin:0 auto; max-width:1180px; background:var(--bg); color:var(--text);
   font-family:"Source Serif 4",Georgia,serif; font-size:18px; line-height:1.65;
   padding:0 6vw 5rem;
 }
@@ -20,6 +20,14 @@ a:hover{color:var(--cue)}
 :focus-visible{outline:2px solid var(--cue); outline-offset:3px}
 
 .masthead{max-width:var(--measure); padding:4rem 0 2rem}
+@media (min-width:940px){
+  .masthead{max-width:none; display:grid; gap:0 3.5rem; align-items:end;
+            grid-template-columns:minmax(0,1fr) minmax(280px,24rem)}
+  .lockup{grid-column:1 / -1; margin-bottom:2rem}
+  .standfirst{margin:0; font-size:1.55rem}
+  .provenance{margin:0; padding-bottom:.35rem}
+}
+
 .lockup{display:flex; align-items:center; gap:1.1rem}
 .brainmark{width:clamp(52px,10vw,72px); height:auto; flex:none}
 .brainmark .body{fill:var(--panel); stroke:var(--edge); stroke-width:3}

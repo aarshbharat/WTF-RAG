@@ -14,9 +14,6 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-print("GROQ_API_KEY present:", bool(os.getenv("GROQ_API_KEY")))
-print("PORT:", os.getenv("PORT"))
-
 from config import PLAYLIST_FILE
 from rag import WTFRag, fmt_time
 
