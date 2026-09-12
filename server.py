@@ -20,6 +20,8 @@ print("PORT:", os.getenv("PORT"))
 from config import PLAYLIST_FILE
 from rag import WTFRag, fmt_time
 
+print("GROQ_API_KEY present:", bool(os.getenv("GROQ_API_KEY")))
+print("env keys with GROQ:", [k for k in os.environ if "GROQ" in k.upper()])
 # Windows reads these from the registry and often gets them wrong, which stops
 # the favicon and even the JS from loading. Setting them explicitly is harmless on Linux.
 mimetypes.add_type("image/svg+xml", ".svg")
